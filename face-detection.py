@@ -11,7 +11,7 @@ cap = cv.VideoCapture(0)
 # models of object #
 ####################
 
-_face = cv.CascadeClassifier('face.xml')
+_face = cv.CascadeClassifier('faces.xml')
 _eyes = cv.CascadeClassifier('eyes.xml')
 _smile = cv.CascadeClassifier('smile.xml')
 
@@ -68,21 +68,20 @@ while True:
         for (ex,ey,ew,eh) in eyes:
             cv.rectangle(ec,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
             print("eyes positions: "+str(ex)+"-"+str(ey))
-            sg = gray[y:y+h, x:x+w]
-            sc=frame[y:y+h,x:x+h]
-            ###############
-            #detect smile #
-            ##############
+        """sg = gray[y:y+h, x:x+w]
+        sc=frame[y:y+h,x:x+h]
+        ###############
+        #detect smile #
+        ##############
+        smile = _smile.detectMultiScale(sg)
 
-            smile = _smile.detectMultiScale(sg)
+        #########################################
+        # detect faces position, draw and print #
+        ########################################
 
-            #########################################
-            # detect faces position, draw and print #
-            ########################################
-
-            for (sx,sy,sw,sh) in smile:
-                cv.rectangle(sc,(sx,sy),(sx+sw,sy+sh),(0,0,255),2)
-                print("mouse position: "+str(sx)+"-"+str(sy))
+        for (sx,sy,sw,sh) in smile:
+            cv.rectangle(sc,(sx,sy),(sx+sw,sy+sh),(0,0,255),2)
+            print("mouse position: "+str(sx)+"-"+str(sy))"""
     ############################
     # show image on the screen #
     ############################
