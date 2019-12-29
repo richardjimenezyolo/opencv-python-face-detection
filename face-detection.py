@@ -5,7 +5,7 @@ import numpy as np
 # capture the camera #
 ######################
 
-cap = cv.VideoCapture(0)
+cap = cv.VideoCapture("http://10.0.0.3:8080/video")
 
 #####################
 # models of object #
